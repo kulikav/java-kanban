@@ -1,7 +1,9 @@
-public class Subtask extends Task {
-    final int epicId;
+package model;
 
-    Subtask(String title, String description, int epicId) {
+public class Subtask extends Task {
+    protected final int epicId;
+
+    public Subtask(String title, String description, int epicId) {
         super(title, description);
         this.epicId = epicId;
     }

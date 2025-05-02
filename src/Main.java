@@ -1,3 +1,8 @@
+import manager.TaskManager;
+import model.Epic;
+import model.Subtask;
+import model.Task;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -9,10 +14,10 @@ public class Main {
         taskManager.addTask(new Task("Хлеб", "Купить хлеб в магазине"));
         taskManager.addTask(new Task("Батон", "Купить батон в магазине"));
         Task task = taskManager.getTaskById(1);
-        task.status = Task.TaskStatus.IN_PROGRESS;
+        task.setStatus(Task.TaskStatus.IN_PROGRESS);
         taskManager.updateTask(task);
 
-        System.out.println(taskManager.getTasks());
+        //System.out.println(taskManager.getTasks());
         //taskManager.deleteAllTasks();
         //System.out.println(taskManager.getTasks());
         //System.out.println(taskManager.getTaskById(1));
@@ -26,34 +31,30 @@ public class Main {
         taskManager.addSubtask(new Subtask("Посадка", "Посадить дерево", 3));//id6
 
 
-       // System.out.println(taskManager.getEpics());
-       // System.out.println(taskManager.getSubtasks());
+        //System.out.println(taskManager.getEpics());
+        //System.out.println(taskManager.getSubtasks());
 
         Subtask subtask = taskManager.getSubtaskById(4);
-        subtask.status = Task.TaskStatus.DONE;
+        subtask.setStatus(Task.TaskStatus.IN_PROGRESS);
         taskManager.updateSubtask(subtask);
 
         subtask = taskManager.getSubtaskById(5);
-        subtask.status = Task.TaskStatus.IN_PROGRESS;
+        subtask.setStatus(Task.TaskStatus.DONE);
         taskManager.updateSubtask(subtask);
 
         subtask = taskManager.getSubtaskById(6);
-        subtask.status = Task.TaskStatus.DONE;
+        subtask.setStatus(Task.TaskStatus.DONE);
         taskManager.updateSubtask(subtask);
 
 
-
         System.out.println(taskManager.getEpics());
-        System.out.println(taskManager.getSubtasks());
+        //System.out.println(taskManager.getSubtasks());
 
         taskManager.deleteEpicById(3);
-        taskManager.deleteSubtaskById(5);
+        taskManager.deleteSubtaskById(4);
 
         System.out.println(taskManager.getEpics());
-        System.out.println(taskManager.getSubtasks());
-
-
-
+        //System.out.println(taskManager.getSubtasks());
 
 
     }

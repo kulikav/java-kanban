@@ -1,12 +1,14 @@
+package model;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Epic extends Task {
-    ArrayList<Integer> subtasksId;
+    protected ArrayList<Subtask> epicSubtasks;
 
-    Epic(String title, String description) {
+    public Epic(String title, String description) {
         super(title, description);
-        subtasksId = new ArrayList<Integer>();
+        epicSubtasks = new ArrayList<Subtask>();
 
     }
 
@@ -17,22 +19,26 @@ public class Epic extends Task {
                 ", [название = " + title + "]" +
                 ", [описание = " + description + "]" +
                 ", [статус = " + status + "]" +
-                ", [подзадачи = " + subtasksId + "]}";
+                ", [подзадачи = " + epicSubtasks + "]}";
     }
 
-    void addSubtask(Integer id) {
-        subtasksId.add(id);
+    public void addSubtask(Subtask subtask) {
+        epicSubtasks.add(subtask);
     }
 
-    void calculateStatus(HashMap<Integer, Subtask> subtasks) {
-        int size = subtasksId.size();
+    public void deleteSubtusk(Subtask subtask) {
+        epicSubtasks.remove(subtask);
+    }
+
+    public void calculateStatus() {
+        int size = epicSubtasks.size();
         if (size == 0) {
             status = TaskStatus.NEW;
             return;
         }
         int counterDone = 0;
-        for (Integer id : subtasksId) {
-            Subtask subtask = subtasks.get(id);
+        for (Subtask subtask : epicSubtasks) {
+            //Subtask subtask = subtask.get(id);
             TaskStatus subtaskStatus = subtask.getStatus();
             if (subtaskStatus == TaskStatus.IN_PROGRESS) {
                 status = TaskStatus.IN_PROGRESS;
@@ -51,8 +57,8 @@ public class Epic extends Task {
         }
     }
 
-    ArrayList getSubtasks() {
-        return subtasksId;
+    public ArrayList<Subtask> getSubtasks() {
+        return epicSubtasks;
     }
 
 }
