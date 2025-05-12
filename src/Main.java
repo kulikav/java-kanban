@@ -4,6 +4,7 @@ import model.Epic;
 import model.Subtask;
 import model.Task;
 
+import java.util.Collection;
 import java.util.List;
 
 
@@ -70,8 +71,8 @@ public class Main {
 //        subtask = taskManager.getSubtaskById(5);
 
         System.out.println("История");
-        List<Task> historyList = taskManager.getHistory();
-        for(Task taskHistory : historyList) {
+        Collection<Task> historyList = taskManager.getHistory();
+        for (Task taskHistory : historyList) {
             System.out.println(taskHistory);
         }
     }

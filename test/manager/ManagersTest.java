@@ -1,5 +1,7 @@
 package manager;
+
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ManagersTest {
@@ -9,7 +11,7 @@ class ManagersTest {
         assertNotNull(manager);
         int id = manager.getNewId();
         assertNotNull(id);
-        assertEquals(id+1, manager.getNewId());
+        assertEquals(id + 1, manager.getNewId());
 
 
     }

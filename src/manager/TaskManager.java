@@ -4,12 +4,12 @@ import model.Epic;
 import model.Subtask;
 import model.Task;
 
-import java.util.ArrayList;
+import java.util.Collection;
 
 public interface TaskManager {
 
     //model.Task
-    ArrayList<Task> getTasks();
+    Collection<Task> getTasks();
 
     void deleteAllTasks();
 
@@ -22,7 +22,7 @@ public interface TaskManager {
     void deleteTaskById(int id);
 
     //model.Subtask
-    ArrayList<Subtask> getSubtasks();
+    Collection<Subtask> getSubtasks();
 
     void deleteAllSubtasks();
 
@@ -35,7 +35,7 @@ public interface TaskManager {
     void deleteSubtaskById(int id);
 
     //model.Epic
-    ArrayList<Epic> getEpics();
+    Collection<Epic> getEpics();
 
     void deleteAllEpics();
 

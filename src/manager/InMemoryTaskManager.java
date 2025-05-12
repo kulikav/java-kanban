@@ -6,17 +6,23 @@ import model.Task;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+import java.util.Collection;
+import java.util.Map;
 
 public class InMemoryTaskManager implements TaskManager {
 
-    private static HistoryManager historyManager = Managers.getDefaultHistory();
+    private static HistoryManager historyManager;
+
+    InMemoryTaskManager(HistoryManager hManager) {
+        historyManager = hManager;
+    }
+
 
     private static int taskId = 0;
 
-    private HashMap<Integer, Task> tasks = new HashMap<>();
-    private HashMap<Integer, Subtask> subtasks = new HashMap<>();
-    private HashMap<Integer, Epic> epics = new HashMap<>();
+    private Map<Integer, Task> tasks = new HashMap<>();
+    private Map<Integer, Subtask> subtasks = new HashMap<>();
+    private Map<Integer, Epic> epics = new HashMap<>();
 
 
     public static int getNewId() {
@@ -26,8 +32,8 @@ public class InMemoryTaskManager implements TaskManager {
 
     //model.Task
     @Override
-    public ArrayList<Task> getTasks() {
-        ArrayList<Task> values = new ArrayList<>(tasks.values());
+    public Collection<Task> getTasks() {
+        Collection<Task> values = new ArrayList<>(tasks.values());
         return values;
     }
 
@@ -60,8 +66,8 @@ public class InMemoryTaskManager implements TaskManager {
 
     //model.Subtask
     @Override
-    public ArrayList<Subtask> getSubtasks() {
-        ArrayList<Subtask> values = new ArrayList<>(subtasks.values());
+    public Collection<Subtask> getSubtasks() {
+        Collection<Subtask> values = new ArrayList<>(subtasks.values());
         return values;
     }
 
@@ -108,8 +114,8 @@ public class InMemoryTaskManager implements TaskManager {
 
     //model.Epic
     @Override
-    public ArrayList<Epic> getEpics() {
-        ArrayList<Epic> values = new ArrayList<>(epics.values());
+    public Collection<Epic> getEpics() {
+        Collection<Epic> values = new ArrayList<>(epics.values());
         return values;
     }
 
@@ -147,7 +153,7 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     //History
-    public List<Task> getHistory() {
+    public Collection<Task> getHistory() {
         return historyManager.getHistory();
     }
 
