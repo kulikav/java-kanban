@@ -1,7 +1,11 @@
-import manager.TaskManager;
+import manager.InMemoryTaskManager;
+import manager.Managers;
 import model.Epic;
 import model.Subtask;
 import model.Task;
+
+import java.util.List;
+
 
 public class Main {
 
@@ -9,7 +13,8 @@ public class Main {
 
         System.out.println("Поехали!");
 
-        TaskManager taskManager = new TaskManager();
+        InMemoryTaskManager taskManager = Managers.getDefault();
+
 
         taskManager.addTask(new Task("Хлеб", "Купить хлеб в магазине"));
         taskManager.addTask(new Task("Батон", "Купить батон в магазине"));
@@ -23,7 +28,7 @@ public class Main {
         //System.out.println(taskManager.getTaskById(1));
 
         taskManager.addEpic(new Epic("Дом", "Построить дом"));//id2
-        taskManager.addEpic(new Epic("Дерево", "Выростить дерево"));//id3
+        taskManager.addEpic(new Epic("Дерево", "Вырастить дерево"));//id3
 
 
         taskManager.addSubtask(new Subtask("Фундамент", "Построить фундамент", 2));//id4
@@ -56,6 +61,18 @@ public class Main {
         System.out.println(taskManager.getEpics());
         //System.out.println(taskManager.getSubtasks());
 
+//        subtask = taskManager.getSubtaskById(5);
+//        task = taskManager.getTaskById(1);
+//        task = taskManager.getTaskById(2);
+//        subtask = taskManager.getSubtaskById(5);
+//        task = taskManager.getTaskById(1);
+//        task = taskManager.getTaskById(2);
+//        subtask = taskManager.getSubtaskById(5);
 
+        System.out.println("История");
+        List<Task> historyList = taskManager.getHistory();
+        for(Task taskHistory : historyList) {
+            System.out.println(taskHistory);
+        }
     }
 }

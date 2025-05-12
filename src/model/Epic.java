@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Epic extends Task {
     protected ArrayList<Subtask> epicSubtasks;
@@ -9,7 +8,6 @@ public class Epic extends Task {
     public Epic(String title, String description) {
         super(title, description);
         epicSubtasks = new ArrayList<Subtask>();
-
     }
 
     @Override
@@ -38,7 +36,6 @@ public class Epic extends Task {
         }
         int counterDone = 0;
         for (Subtask subtask : epicSubtasks) {
-            //Subtask subtask = subtask.get(id);
             TaskStatus subtaskStatus = subtask.getStatus();
             if (subtaskStatus == TaskStatus.IN_PROGRESS) {
                 status = TaskStatus.IN_PROGRESS;

@@ -1,11 +1,11 @@
 package model;
 
-import manager.TaskManager;
+import manager.InMemoryTaskManager;
 
 import java.util.Objects;
 
 public class Task {
-    protected final int id;
+    protected int id;
     protected String title;
     protected String description;
     protected TaskStatus status;
@@ -18,7 +18,7 @@ public class Task {
     }
 
     public Task(String title, String description) {
-        this.id = TaskManager.getNewId();
+        this.id = InMemoryTaskManager.getNewId();
         this.title = title;
         this.description = description;
         this.status = TaskStatus.NEW;
@@ -66,6 +66,10 @@ public class Task {
         this.status = status;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "Задача{" +
@@ -75,4 +79,6 @@ public class Task {
                 ", [статус = " + status + "]}";
     }
 
+
 }
+
