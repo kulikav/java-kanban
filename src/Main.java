@@ -6,7 +6,6 @@ import model.Task;
 
 import java.util.List;
 
-
 public class Main {
 
     public static void main(String[] args) {
@@ -17,18 +16,31 @@ public class Main {
 
 
         taskManager.addTask(new Task("Хлеб", "Купить хлеб в магазине"));
+
+
+
         taskManager.addTask(new Task("Батон", "Купить батон в магазине"));
+
+
+
         Task task = taskManager.getTaskById(1);
         task.setStatus(Task.TaskStatus.IN_PROGRESS);
         taskManager.updateTask(task);
 
         //System.out.println(taskManager.getTasks());
-        //taskManager.deleteAllTasks();
-        //System.out.println(taskManager.getTasks());
+       // taskManager.deleteAllTasks();
+       // System.out.println(taskManager.getTasks());
         //System.out.println(taskManager.getTaskById(1));
+
 
         taskManager.addEpic(new Epic("Дом", "Построить дом"));//id2
         taskManager.addEpic(new Epic("Дерево", "Вырастить дерево"));//id3
+
+//        System.out.println("История");
+//        List<Task> historyList = taskManager.getHistory();
+//        for(Task taskHistory : historyList) {
+//            System.out.println(taskHistory);
+//        }
 
 
         taskManager.addSubtask(new Subtask("Фундамент", "Построить фундамент", 2));//id4
@@ -39,27 +51,27 @@ public class Main {
         //System.out.println(taskManager.getEpics());
         //System.out.println(taskManager.getSubtasks());
 
-        Subtask subtask = taskManager.getSubtaskById(4);
-        subtask.setStatus(Task.TaskStatus.IN_PROGRESS);
-        taskManager.updateSubtask(subtask);
+//        Subtask subtask = taskManager.getSubtaskById(4);
+//        subtask.setStatus(Task.TaskStatus.IN_PROGRESS);
+//        taskManager.updateSubtask(subtask);
+//
+//        subtask = taskManager.getSubtaskById(5);
+//        subtask.setStatus(Task.TaskStatus.DONE);
+//        taskManager.updateSubtask(subtask);
+//
+//        subtask = taskManager.getSubtaskById(6);
+//        subtask.setStatus(Task.TaskStatus.DONE);
+//        taskManager.updateSubtask(subtask);
 
-        subtask = taskManager.getSubtaskById(5);
-        subtask.setStatus(Task.TaskStatus.DONE);
-        taskManager.updateSubtask(subtask);
 
-        subtask = taskManager.getSubtaskById(6);
-        subtask.setStatus(Task.TaskStatus.DONE);
-        taskManager.updateSubtask(subtask);
-
-
-        System.out.println(taskManager.getEpics());
+        //System.out.println(taskManager.getEpics());
         //System.out.println(taskManager.getSubtasks());
 
-        taskManager.deleteEpicById(3);
-        taskManager.deleteSubtaskById(4);
+        //taskManager.deleteEpicById(3);
+        //taskManager.deleteSubtaskById(4);
 
-        System.out.println(taskManager.getEpics());
-        //System.out.println(taskManager.getSubtasks());
+       // System.out.println(taskManager.getEpics());
+       // System.out.println(taskManager.getSubtasks());
 
 //        subtask = taskManager.getSubtaskById(5);
 //        task = taskManager.getTaskById(1);
@@ -68,6 +80,28 @@ public class Main {
 //        task = taskManager.getTaskById(1);
 //        task = taskManager.getTaskById(2);
 //        subtask = taskManager.getSubtaskById(5);
+        task = taskManager.getTaskById(0);
+        task = taskManager.getEpicById(2);
+        task = taskManager.getTaskById(1);
+        task = taskManager.getSubtaskById(4);
+        task = taskManager.getEpicById(3);
+        task = taskManager.getSubtaskById(6);
+        task = taskManager.getSubtaskById(5);
+
+        //taskManager.deleteTaskById(1);
+        //taskManager.deleteSubtaskById(4);
+        //taskManager.deleteSubtaskById(5);
+        //taskManager.deleteEpicById(2);
+        //System.out.println(taskManager.getEpics());
+
+        task = taskManager.getTaskById(0);
+        task = taskManager.getEpicById(2);
+        task = taskManager.getTaskById(1);
+        task = taskManager.getSubtaskById(4);
+        task = taskManager.getEpicById(3);
+        task = taskManager.getSubtaskById(6);
+        task = taskManager.getSubtaskById(5);
+        task = taskManager.getEpicById(2);
 
         System.out.println("История");
         List<Task> historyList = taskManager.getHistory();
