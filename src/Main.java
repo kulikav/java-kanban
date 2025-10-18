@@ -18,9 +18,7 @@ public class Main {
         taskManager.addTask(new Task("Хлеб", "Купить хлеб в магазине"));
 
 
-
         taskManager.addTask(new Task("Батон", "Купить батон в магазине"));
-
 
 
         Task task = taskManager.getTaskById(1);
@@ -35,7 +33,6 @@ public class Main {
         taskManager.addSubtask(new Subtask("Фундамент", "Построить фундамент", 2));//id4
         taskManager.addSubtask(new Subtask("Стены", "Построить стены", 2));//id5
         taskManager.addSubtask(new Subtask("Посадка", "Посадить дерево", 3));//id6
-
 
 
         task = taskManager.getTaskById(0);
@@ -61,7 +58,7 @@ public class Main {
 
         System.out.println("История");
         List<Task> historyList = taskManager.getHistory();
-        for(Task taskHistory : historyList) {
+        for (Task taskHistory : historyList) {
             System.out.println(taskHistory);
         }
     }
