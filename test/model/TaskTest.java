@@ -1,5 +1,7 @@
 package model;
+
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class TaskTest {
@@ -12,5 +14,5 @@ class TaskTest {
         assertEquals(task1, task2,
                 "Ошибка! Экземпляры класса Task должны быть равны друг другу, если равен их id;");
     }
-  
+
 }
