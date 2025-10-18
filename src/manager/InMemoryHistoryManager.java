@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class InMemoryHistoryManager implements HistoryManager {
-    // private List<Task> history = new ArrayList<>();
+
     private static class Node {
         Task task;
         Node prev;
@@ -90,10 +90,10 @@ public class InMemoryHistoryManager implements HistoryManager {
     public List<Task> getHistory() {
         ArrayList<Task> tasks = new ArrayList<>();
         Node node = first;
-        if (node != null){
+        if (node != null) {
             tasks.add(node.task);
         }
-        while (node.next != null){
+        while (node.next != null) {
             node = node.next;
             tasks.add(node.task);
         }
