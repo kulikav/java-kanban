@@ -5,7 +5,7 @@ import model.Task;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
-import java.util.List;
+import java.util.Collection;
 
 public class InMemoryHistoryManager implements HistoryManager {
 
@@ -87,7 +87,7 @@ public class InMemoryHistoryManager implements HistoryManager {
     }
 
     @Override
-    public List<Task> getHistory() {
+    public Collection<Task> getHistory() {
         ArrayList<Task> tasks = new ArrayList<>();
         Node node = first;
         if (node != null) {
